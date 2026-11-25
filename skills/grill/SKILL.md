@@ -31,7 +31,7 @@ Wait for the answers, recompute the frontier, ask the next round. A question tha
 - **Glossary.** When a term is fuzzy, overloaded or clashes with the glossary, say so and propose one precise term. Write each settled term to the glossary right away, following [GLOSSARY-FORMAT.md](GLOSSARY-FORMAT.md).
 - **Code check.** When the user states how something works, check the code and raise contradictions at once: "The code does X, you said Y. Which is right?"
 - **Scenarios.** Probe the edges with concrete scenarios: interruptions, failures, wrong order, missing data.
-- **Requirements.** Where the project has written requirements, check against them. A gap becomes a question.
+- **Requirements.** Where the settings name written requirements, check against them. A gap becomes a question.
 - **ADR.** Offer one only when a decision is hard to reverse, surprising without context, and the result of a real trade-off. Use the project's ADR template.
 - **Prototype.** When a question needs something to click on to settle, propose a prototype: [PROTOTYPE.md](PROTOTYPE.md). Grilling continues once it has answered the question.
 

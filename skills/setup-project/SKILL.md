@@ -14,7 +14,7 @@ Read what exists; assume nothing.
 
 - Agent instruction files: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`. Note the language docs are written in, build and test commands, and an existing agent-skills pointer.
 - `docs/agents/project.md` or another settings file from an earlier run: update it in place.
-- ADR folder and its template, glossary, doc folder layout.
+- ADR folder and its template, glossary, written requirements, doc folder layout.
 - The build tool's check commands: compile, unit tests, lint.
 - `.ignore` at the repo root.
 - The UI toolkit, for the prototype line.
@@ -45,6 +45,7 @@ Done when the files are written and the user has seen the final settings.
 - Doc language (specs, glossary definitions, ADRs, retro log): <language>
 - Glossary: <path>
 - ADRs: <folder>, template: <path, or "one paragraph: context, decision, why">
+- Requirements: <path to written requirements, or "none">
 - Specs: <folder>/<name>/spec.md
 - Retro log: <path>
 - Tracker: <section from the tracker file>
