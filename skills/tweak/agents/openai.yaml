@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tweak"
+  short_description: "Make a small change after a quick alignment"
+policy:
+  allow_implicit_invocation: false

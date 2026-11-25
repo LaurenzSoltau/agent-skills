@@ -1,0 +1,5 @@
+interface:
+  display_name: "Spec"
+  short_description: "Turn a finished grilling into a buildable spec"
+policy:
+  allow_implicit_invocation: false
