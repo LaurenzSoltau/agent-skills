@@ -48,7 +48,8 @@ Then run the setup-project skill once in each project.
 ## Per-project settings
 
 setup-project writes the project settings to `docs/agents/project.md`, the path every skill
-looks at first. Glossary, ADRs, specs and the retro log live in the project, never here.
+looks at first. It also moves the project rules into `AGENTS.md` and makes `CLAUDE.md` a
+symlink to it, so all agents read the same rules. Glossary, ADRs, specs and the retro log live in the project, never here.
 Keep this repo free of anything project- or company-specific.
 
 ## Writing a new skill

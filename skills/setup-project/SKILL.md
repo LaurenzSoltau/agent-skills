@@ -21,12 +21,15 @@ Read what exists; assume nothing.
 
 ## 2. Propose
 
-Show the filled-in settings (template below). Mark every value you guessed. One round of corrections, then write.
-
-If the project has only one of `CLAUDE.md` and `AGENTS.md`, offer to add the other as a symlink to it, so every agent reads the same project rules.
+Show the filled-in settings (template below) and the planned instruction-file change. Mark every value you guessed. One round of corrections, then write.
 
 ## 3. Write
 
+- **One instruction file for all agents.** The project rules live in `AGENTS.md`; `CLAUDE.md` is a symlink to it.
+  - Only `CLAUDE.md` exists: `git mv` it to `AGENTS.md`, then `ln -s AGENTS.md CLAUDE.md`.
+  - Only `AGENTS.md` exists: `ln -s AGENTS.md CLAUDE.md`.
+  - Both exist as separate files: show the user both and merge into `AGENTS.md` together, then link.
+  - Claude-only syntax in the rules (`@path` imports) stays readable for other agents as a plain path; tell the user which lines use it.
 - The settings file at `docs/agents/project.md`. Another path works only with a pointer line in the instruction files: `Agent skills read their project settings from <path>.`
 - The spec folder as a line in `.ignore` (create the file if missing). Searches then skip old specs; reading a spec by its path still works.
 
