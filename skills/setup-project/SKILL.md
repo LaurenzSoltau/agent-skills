@@ -1,6 +1,6 @@
 ---
 name: setup-project
-description: Configure this project for the agent skills (grill, tweak, spec, implement, retro). Run once per project, again to change settings.
+description: Use only when the user invokes this skill by name. Configures this project for the agent skills (grill, tweak, spec, implement, retro); run once per project, again to change settings.
 disable-model-invocation: true
 ---
 
@@ -12,8 +12,8 @@ Write the project settings the other skills read. Explore, propose, write after 
 
 Read what exists; assume nothing.
 
-- `CLAUDE.md` / `AGENTS.md`: an existing agent-skills pointer, the language docs are written in, build and test commands.
-- An existing settings file from an earlier run: update it in place.
+- Agent instruction files: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`. Note the language docs are written in, build and test commands, and an existing agent-skills pointer.
+- `docs/agents/project.md` or another settings file from an earlier run: update it in place.
 - ADR folder and its template, glossary, doc folder layout.
 - The build tool's check commands: compile, unit tests, lint.
 - `.ignore` at the repo root.
@@ -23,16 +23,16 @@ Read what exists; assume nothing.
 
 Show the filled-in settings (template below). Mark every value you guessed. One round of corrections, then write.
 
+If the project has only one of `CLAUDE.md` and `AGENTS.md`, offer to add the other as a symlink to it, so every agent reads the same project rules.
+
 ## 3. Write
 
-- The settings file, default `docs/agents/project.md`.
-- One pointer line in `CLAUDE.md` (else `AGENTS.md`; neither exists → ask which to create), replacing an older one:
-  `Agent skills (/grill, /tweak, /spec, /implement, /retro) read their project settings from <path>.`
+- The settings file at `docs/agents/project.md`. Another path works only with a pointer line in the instruction files: `Agent skills read their project settings from <path>.`
 - The spec folder as a line in `.ignore` (create the file if missing). Searches then skip old specs; reading a spec by its path still works.
 
 Glossary, ADR folder and retro log are created later by the skill that first needs them.
 
-Done when all three are written and the user has seen the final settings.
+Done when the files are written and the user has seen the final settings.
 
 ## Settings template
 

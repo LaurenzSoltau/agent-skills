@@ -1,6 +1,6 @@
 ---
 name: grill
-description: Relentless interview to align on a feature before building it. Records glossary terms and ADRs as they settle and ends with an explain-back.
+description: Use only when the user invokes this skill by name. Relentless interview to align on a feature before building it; records glossary terms and ADRs as they settle and ends with an explain-back.
 disable-model-invocation: true
 ---
 
@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Interview the user until you both understand the feature the same way. Slow is fine: alignment is the goal, not speed.
 
-Read the project settings (pointer in `CLAUDE.md`); if there are none, tell the user to run `/setup-project` and stop. Before the first round, read the glossary and the ADRs in the area under discussion.
+Read the project settings at `docs/agents/project.md`, or at the path the project's agent instructions (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`) name. If there are none, tell the user to run the setup-project skill and stop. Before the first round, read the glossary and the ADRs in the area under discussion.
 
 ## Rounds
 
@@ -45,4 +45,4 @@ When the frontier is empty, run all three steps in order. Any mismatch reopens g
 
 ## Done
 
-Done when the frontier is empty, all three explain-back steps passed, and the user confirms you share one understanding. Close with the numbered list of settled decisions, including prototype answers and their branches. That list is the input for `/spec`.
+Done when the frontier is empty, all three explain-back steps passed, and the user confirms you share one understanding. Close with the numbered list of settled decisions, including prototype answers and their branches. That list is the input for the spec skill.

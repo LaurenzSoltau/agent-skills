@@ -27,7 +27,7 @@ feature ───────▶ /grill ──▶ /spec ──▶ /implement ─
 | `/implement` | Build a spec, check it, commit |
 | `/retro` | Review a session and fix the setup that caused friction |
 
-All skills are user-invoked: they run only when you type them.
+All skills are meant to run only when you call them by name.
 
 ## Install
 
@@ -35,12 +35,27 @@ All skills are user-invoked: they run only when you type them.
 ./install.sh
 ```
 
-Links every skill folder into `~/.claude/skills/`, so edits here take effect immediately.
-Then run `/setup-project` once in each project.
+Edits in this repo take effect immediately, since every agent reads the skills from here:
+
+| Agent | How it finds the skills | Call a skill | Only when called |
+|---|---|---|---|
+| Claude Code | links in `~/.claude/skills/` | `/grill` | `disable-model-invocation: true` in `SKILL.md` |
+| Codex | links in `~/.agents/skills/` | `$grill` or `/skills` | `policy.allow_implicit_invocation: false` in `agents/openai.yaml` |
+| Antigravity | entry in `~/.gemini/config/skills.json` | `/grill` | no setting exists; the description asks the agent to wait for an explicit call |
+
+Then run the setup-project skill once in each project.
 
 ## Per-project settings
 
-`/setup-project` writes a short settings file into the project (default
-`docs/agents/project.md`) and one pointer line into its `CLAUDE.md`. Glossary, ADRs, specs
-and the retro log live in the project, never here. Keep this repo free of anything
-project- or company-specific.
+setup-project writes the project settings to `docs/agents/project.md`, the path every skill
+looks at first. Glossary, ADRs, specs and the retro log live in the project, never here.
+Keep this repo free of anything project- or company-specific.
+
+## Writing a new skill
+
+- Folder name = `name` in the frontmatter: lowercase letters, digits, single hyphens.
+- `description` starts with "Use only when the user invokes this skill by name."
+- `disable-model-invocation: true` in the frontmatter, plus `agents/openai.yaml` with
+  `policy.allow_implicit_invocation: false`.
+- Refer to other skills by name ("the spec skill"), not by one agent's call syntax.
+- Run `./install.sh` again.

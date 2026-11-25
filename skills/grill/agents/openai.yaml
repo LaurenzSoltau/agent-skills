@@ -1,0 +1,5 @@
+interface:
+  display_name: "Grill"
+  short_description: "Get interviewed until you and the agent agree on a feature"
+policy:
+  allow_implicit_invocation: false
